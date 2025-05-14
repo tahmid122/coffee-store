@@ -28,7 +28,7 @@ const cards = [
 const Quality = () => {
   return (
     <div className="bg-[#ECEAE3] ">
-      <div className="w-11/12 mx-auto grid grid-cols-1 p-5 md:p-14 md:grid-cols-4 gap-10">
+      <div className="w-11/12 mx-auto grid grid-cols-1 p-5 md:p-0 md:py-14 md:grid-cols-4 gap-10">
         {cards.map((card, index) => {
           return (
             <div key={index} className="space-y-2">
