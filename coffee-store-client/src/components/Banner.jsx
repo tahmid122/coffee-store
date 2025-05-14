@@ -17,7 +17,7 @@ const Banner = () => {
         </button>
       </div>
       <img
-        className="w-full h-full absolute left-0 top-0"
+        className="w-full h-full absolute left-0 top-0 object-cover"
         src={bgImage}
         alt=""
       />

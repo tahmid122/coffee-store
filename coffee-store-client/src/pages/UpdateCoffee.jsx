@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { FaArrowLeft } from "react-icons/fa6";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
@@ -34,10 +35,20 @@ const UpdateCoffee = () => {
   };
   return (
     <div>
-      {" "}
-      <div className="w-10/12 mx-auto bg-gray-100 rounded-xl p-10 my-10">
-        <div className="text-center space-y-5">
-          <h3 className="text-3xl font-bold">Update Existing Coffee</h3>
+      <div className="w-full">
+        <Link
+          to={"/"}
+          className="flex items-center p-2 text-xl font-bold italic"
+        >
+          <FaArrowLeft />
+          Back to home
+        </Link>
+      </div>
+      <div className="w-10/12 mx-auto bg-[#F4F3F0] rounded-xl p-10 my-10">
+        <div className="text-center space-y-5 md:w-10/12 mx-auto">
+          <h3 className="text-3xl font-bold text-shadow-md text-shadow-gray-400">
+            Update Existing Coffee Details
+          </h3>
           <p className="text-center text-base">
             It is a long established fact that a reader will be distraceted by
             the readable content of a page when looking at its layout. The point
@@ -48,60 +59,60 @@ const UpdateCoffee = () => {
         <form onSubmit={handleUpdateCoffee}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Name</legend>
+              <legend className="fieldset-legend text-xl">Name</legend>
               <input
                 type="text"
-                className="input w-full"
-                name="name"
                 defaultValue={name}
+                className="input w-full focus:outline-none focus:border-none"
+                name="name"
                 placeholder="Enter Coffee Name"
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Chef</legend>
+              <legend className="fieldset-legend text-xl">Chef</legend>
               <input
                 type="text"
-                className="input w-full"
-                name="chef"
                 defaultValue={chef}
+                className="input w-full focus:outline-none focus:border-none"
+                name="chef"
                 placeholder="Enter Coffee Name"
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Supplier</legend>
+              <legend className="fieldset-legend text-xl">Supplier</legend>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full focus:outline-none focus:border-none"
                 name="supplier"
                 defaultValue={supplier}
                 placeholder="Enter Coffee Supplier"
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Test</legend>
+              <legend className="fieldset-legend text-xl">Taste</legend>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full focus:outline-none focus:border-none"
                 name="test"
                 defaultValue={test}
                 placeholder="Enter Coffee Test"
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Price</legend>
+              <legend className="fieldset-legend text-xl">Price</legend>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full focus:outline-none focus:border-none"
                 name="price"
                 defaultValue={price}
                 placeholder="Enter Coffee Price"
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">Details</legend>
+              <legend className="fieldset-legend text-xl">Details</legend>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full focus:outline-none focus:border-none"
                 name="details"
                 defaultValue={details}
                 placeholder="Enter Coffee Details"
@@ -109,10 +120,10 @@ const UpdateCoffee = () => {
             </fieldset>
           </div>
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Photo URL</legend>
+            <legend className="fieldset-legend text-xl">Photo URL</legend>
             <input
               type="text"
-              className="input w-full"
+              className="input w-full focus:outline-none focus:border-none"
               name="photo"
               defaultValue={photo}
               placeholder="Enter Coffee Photo"
@@ -120,7 +131,7 @@ const UpdateCoffee = () => {
           </fieldset>
           <button
             type="submit"
-            className="btn mt-4 w-full bg-amber-700 text-white"
+            className="btn mt-4 w-full bg-[#D2B48C] text-black text-xl"
           >
             Update Coffee
           </button>
