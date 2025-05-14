@@ -3,6 +3,7 @@ import Coffees from "../components/Coffees";
 import { useLoaderData } from "react-router";
 import Banner from "../components/Banner";
 import Quality from "../components/Quality";
+import Instagram from "../components/Instagram";
 const Home = () => {
   const coffees = useLoaderData();
   console.log(coffees);
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Quality />
       <Coffees coffees={coffees} />
+      <Instagram />
     </div>
   );
 };
