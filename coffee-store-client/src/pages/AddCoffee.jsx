@@ -39,7 +39,7 @@ const AddCoffee = () => {
           Back to home
         </Link>
       </div>
-      <div className="w-10/12 mx-auto bg-[#F4F3F0] rounded-xl p-10 my-10">
+      <div className="w-10/12 mx-auto bg-[#F4F3F0] rounded-xl p-5 md:p-10 my-10">
         <div className="text-center space-y-5 md:w-10/12 mx-auto">
           <h3 className="text-3xl font-bold text-shadow-md text-shadow-gray-400">
             Add New Coffee
