@@ -11,15 +11,20 @@ const AddCoffee = () => {
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
     console.log(newCoffee);
-    axios.post("http://localhost:5000/coffees", newCoffee).then((data) => {
-      if (data.data.insertedId) {
-        Swal.fire({
-          title: "Added",
-          text: "Coffee added successfully!",
-          icon: "success",
-        });
-      }
-    });
+    axios
+      .post(
+        "https://coffee-store-server-chi-eight.vercel.app/coffees",
+        newCoffee
+      )
+      .then((data) => {
+        if (data.data.insertedId) {
+          Swal.fire({
+            title: "Added",
+            text: "Coffee added successfully!",
+            icon: "success",
+          });
+        }
+      });
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",

@@ -11,7 +11,9 @@ const Coffees = () => {
   const { isPending, data } = useQuery({
     queryKey: ["coffees"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/coffees");
+      const res = await fetch(
+        "https://coffee-store-server-chi-eight.vercel.app/coffees"
+      );
       return res.json();
     },
   });
@@ -26,24 +28,28 @@ const Coffees = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/coffees/${id}`).then((data) => {
-          if (data.data.deletedCount) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-            const filteredCoffee = allCoffee.filter(
-              (coffee) => coffee._id !== id
-            );
-            setAllCoffee(filteredCoffee);
-          }
-        });
+        axios
+          .delete(
+            `https://coffee-store-server-chi-eight.vercel.app/coffees/${id}`
+          )
+          .then((data) => {
+            if (data.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const filteredCoffee = allCoffee.filter(
+                (coffee) => coffee._id !== id
+              );
+              setAllCoffee(filteredCoffee);
+            }
+          });
       }
     });
   };
   useEffect(() => {
-    // axios.get("http://localhost:5000/coffees").then((data) => {
+    // axios.get("https://coffee-store-server-chi-eight.vercel.app/coffees").then((data) => {
     //   setAllCoffee(data.data);
     // });
     setAllCoffee(data);
