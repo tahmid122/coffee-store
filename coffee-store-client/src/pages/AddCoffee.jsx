@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router";
@@ -10,23 +11,31 @@ const AddCoffee = () => {
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
     console.log(newCoffee);
-    fetch("http://localhost:5000/coffees", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newCoffee),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Added",
-            text: "Coffee added successfully!",
-            icon: "success",
-          });
-        }
-      });
+    axios.post("http://localhost:5000/coffees", newCoffee).then((data) => {
+      if (data.data.insertedId) {
+        Swal.fire({
+          title: "Added",
+          text: "Coffee added successfully!",
+          icon: "success",
+        });
+      }
+    });
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newCoffee),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       Swal.fire({
+    //         title: "Added",
+    //         text: "Coffee added successfully!",
+    //         icon: "success",
+    //       });
+    //     }
+    //   });
   };
   return (
     <div>

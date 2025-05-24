@@ -5,37 +5,9 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const CoffeeCars = ({ coffee, allCoffee, setAllCoffee }) => {
+const CoffeeCars = ({ coffee, handleDelete }) => {
   const { _id, name, chef, price, photo } = coffee;
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/coffees/${id}`, { method: "DELETE" })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
-              const filteredCoffee = allCoffee.filter(
-                (coffee) => coffee._id !== id
-              );
-              setAllCoffee(filteredCoffee);
-            }
-          });
-      }
-    });
-  };
+
   return (
     <div className="flex items-center md:flex-row flex-col gap-6 bg-[#f5f4f1d8] p-7 rounded-xl min-h-[300px]">
       <img className="w-[185px] h-[240px] object-cover" src={photo} alt="" />

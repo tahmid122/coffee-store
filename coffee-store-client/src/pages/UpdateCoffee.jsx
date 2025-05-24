@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link, useLoaderData, useNavigate } from "react-router";
@@ -12,26 +13,39 @@ const UpdateCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const coffee = Object.fromEntries(formData.entries());
-    fetch(`http://localhost:5000/coffees/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(coffee),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Updated Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
-        }
-      });
+    axios.put(`http://localhost:5000/coffees/${_id}`, coffee).then((data) => {
+      console.log(data.data);
+      if (data.data.modifiedCount) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Updated Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      }
+    });
+    // fetch(`http://localhost:5000/coffees/${_id}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(coffee),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.modifiedCount) {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: "Updated Successfully",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //       navigate("/");
+    //     }
+    //   });
   };
   return (
     <div>
